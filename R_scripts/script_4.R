@@ -25,7 +25,7 @@ draw_lower_banner <- function(canvas) {
   canvas +
     geom_polygon(
       data=LB,
-      fill='black',
+      fill=rgb(0, 0.2, 0.4),
       color='black',
       size=1,
       aes(x=x, y=y))
