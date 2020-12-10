@@ -21,14 +21,16 @@ draw_upper_banner <- function(canvas) {
   names(UB) <- c('x', 'y')
   UB[nrow(UB) + 1,] <- UB[1,]
 
-  # plot data
-  canvas +
-    geom_polygon(
-      data=UB,
-      fill=rgb(1, 0.8235, 0),
-      color=NA,
-      size=1,
-      aes(x=x, y=y))
+ # plot data
+ canvas +
+   geom_polygon(
+     data=UB,
+     fill=rgb(1, 0.8235, 0),
+     color=NA,
+     size=1,
+     aes(x=x, y=y)) +
+   geom_text(label='Marquette Rocks', aes(x=7, y=1.5), color='black', size=5)  # per reviewer comment
+
 }
 
 

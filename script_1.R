@@ -1,39 +1,37 @@
 #!/usr/bin/env Rscript
 #
-# R_scripts/script_4.R
+# R_scripts/script_1.R
 # --------------------------------------------------------
 # This script is a working file for this tutorial. You
 # will need to edit this file to implement reviewer
 # comments.
 #
 # You can run this script "individually" by 
-# calling the `test_lower_banner` function defined below.
+# calling the `test_U` function defined below.
 #
 
 library(ggplot2)
 
-draw_lower_banner <- function(canvas) {
-  # Adds lower banner to an existing ggplot2 context
+draw_U <- function(canvas) {
+  # Adds a letter "U" to an existing ggplot2 context
 
   # read in data
-  LB <- read.csv(file = 'data/lower_banner.csv',
+  U <- read.csv(file = 'data/letter_1.csv',
                 header = FALSE)
-  names(LB) <- c('x', 'y')
-  LB[nrow(LB) + 1,] <- LB[1,]
-
+  names(U) <- c('x', 'y')
+  U[nrow(U) + 1,] <- U[1,]
   # plot data
   canvas +
     geom_polygon(
-      data=LB,
-      fill=rgb(0, 0.2, 0.4),
+      data=U,
+      fill=rgb(1, 0.8, 0),  # per reviewer comment
       color='black',
       size=1,
       aes(x=x, y=y))
 }
 
-
-test_lower_banner <- function() {
-  # Displays just the lower banner
+test_U <- function() {
+  # Displays just the U body
   
   canvas <- ggplot(NULL) + 
     theme(axis.title=element_blank(),
@@ -42,24 +40,24 @@ test_lower_banner <- function() {
           panel.background=element_blank(),
           panel.grid=element_blank())
   
-  draw_lower_banner(canvas)  
+  draw_U(canvas)  
 }
 
 ## Solution ----
-# draw_lower_banner <- function(canvas) {
-#   # Adds lower banner to an existing ggplot2 context
+# draw_U <- function(canvas) {
+#   # Adds a U body to an existing ggplot2 context
 # 
 #   # read in data
-#   LB <- read.csv(file = 'data/lower_banner.csv',
+#   U <- read.csv(file = 'data/letter_1.csv',
 #                     header = FALSE)
-#   names(LB) <- c('x', 'y')
-#   LB[nrow(LB) + 1,] <- LB[1,]
+#   names(U) <- c('x', 'y')
+#   U[nrow(U) + 1,] <- U[1,]
 # 
 #   # plot data
 #   canvas +
 #     geom_polygon(
-#       data=LB,
-#       fill=rgb(0, 0.2, 0.4),  # per reviewer comment
+#       data=U,
+#       fill=rgb(1, 0.8, 0),  # per reviewer comment
 #       color='black',
 #       size=1,
 #       aes(x=x, y=y))

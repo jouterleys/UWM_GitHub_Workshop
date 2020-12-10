@@ -25,7 +25,7 @@ draw_M <- function(canvas) {
   canvas +
     geom_polygon(
       data=M,
-      fill='black',
+      fill=rgb(1, 0.8, 0),
       color='black',
       size=1,
       aes(x=x, y=y))
