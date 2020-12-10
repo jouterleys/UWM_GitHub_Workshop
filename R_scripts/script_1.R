@@ -17,20 +17,18 @@ draw_U <- function(canvas) {
 
   # read in data
   U <- read.csv(file = 'data/letter_1.csv',
-                    header = FALSE)
+                header = FALSE)
   names(U) <- c('x', 'y')
   U[nrow(U) + 1,] <- U[1,]
-
   # plot data
   canvas +
     geom_polygon(
       data=U,
-      fill='black',
+      fill=rgb(1, 0.8, 0),  # per reviewer comment
       color='black',
       size=1,
       aes(x=x, y=y))
 }
-
 
 test_U <- function() {
   # Displays just the U body
